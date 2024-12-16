@@ -1,0 +1,37 @@
+{
+  "name": "pushkin-worker",
+  "version": "3.0.3",
+  "description": "A basic starter worker used to communicate between a Pushkin API and databases",
+  "main": "build/index.js",
+  "files": [
+    "build/*"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel --root-mode upward src -d build",
+    "prepack": "cp ../../LICENSE ."
+  },
+  "keywords": [
+    "pushkin",
+    "worker"
+  ],
+  "author": "L3",
+  "license": "MIT",
+  "homepage": "https://pushkin-consortium.github.io/pushkin",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pushkin-consortium/pushkin.git",
+    "directory": "packages/pushkin-worker"
+  },
+  "bugs": {
+    "url": "https://github.com/pushkin-consortium/pushkin/issues"
+  },
+  "dependencies": {
+    "amqplib": "^0.10.3",
+    "core-js": "^3.23.3",
+    "knex": "^2.4.2",
+    "pg": "^8.11.0",
+    "regenerator-runtime": "^0.13.3"
+  },
+  "yalcSig": "100de1ac5bb9e0b28a8a9e5dd39aa051"
+}

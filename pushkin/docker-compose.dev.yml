@@ -1,0 +1,148 @@
+version: '3.1'
+volumes:
+  message_queue_volume: null
+  test_db_volume: null
+  test_transaction_db_volume: null
+services:
+  api:
+    image: api
+    environment:
+      AMQP_ADDRESS: 'amqp://message-queue:5672'
+      PORT: 3000
+    expose:
+      - '3000'
+    links:
+      - message-queue
+  message-queue:
+    image: 'rabbitmq:3.6-management'
+    expose:
+      - 5672
+      - 15672
+    ports:
+      - 15672
+    environment:
+      CONFD_ARGS: '--interval 5'
+      RABBITMQ_CLUSTER_PARTITION_HANDLING: autoheal
+      RABBITMQ_NET_TICKTIME: '60'
+      RABBITMQ_ERLANG_COOKIE: message-queue-cookie
+      RABBITMQ_NODENAME: rabbitmqnode@localhost
+    volumes:
+      - 'message_queue_volume:/var/lib/rabbitmq'
+  server:
+    image: server
+    environment:
+      NODE_ENV: debug
+      API_PORT: '3000'
+    ports:
+      - '80:80'
+      - '433:433'
+    links:
+      - api
+  test_db:
+    image: 'postgres:11'
+    environment:
+      POSTGRES_PASSWORD: 7061b35bb1d84bb855c6246adfd95c2f
+      POSTGRES_DB: test_db
+    ports:
+      - '5432:5432'
+    volumes:
+      - 'test_db_volume:/var/lib/postgresql/data'
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - pg_isready -U postgres
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  test_transaction_db:
+    image: 'postgres:11'
+    environment:
+      POSTGRES_PASSWORD: df3b0f0b72fdc42085a677a49fdd0665
+      POSTGRES_DB: test_transaction_db
+    ports:
+      - '5433:5432'
+    volumes:
+      - 'test_transaction_db_volume:/var/lib/postgresql/data'
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - pg_isready -U postgres
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  basic_path_worker:
+    image: basic_path_worker
+    links:
+      - message-queue
+      - test_db
+      - test_transaction_db
+    environment:
+      AMQP_ADDRESS: 'amqp://message-queue:5672'
+      DB_USER: postgres
+      DB_PASS: 7061b35bb1d84bb855c6246adfd95c2f
+      DB_HOST: test_db
+      DB_DB: test_db
+      TRANS_USER: postgres
+      TRANS_PASS: df3b0f0b72fdc42085a677a49fdd0665
+      TRANS_HOST: test_transaction_db
+      TRANS_DB: test_transaction_db
+      TRANS_PORT: '5433'
+    labels:
+      isPushkinWorker: true
+  grammaticalityjudgment_path_worker:
+    image: grammaticalityjudgment_path_worker
+    links:
+      - message-queue
+      - test_db
+      - test_transaction_db
+    environment:
+      AMQP_ADDRESS: 'amqp://message-queue:5672'
+      DB_USER: postgres
+      DB_PASS: 7061b35bb1d84bb855c6246adfd95c2f
+      DB_HOST: test_db
+      DB_DB: test_db
+      TRANS_USER: postgres
+      TRANS_PASS: df3b0f0b72fdc42085a677a49fdd0665
+      TRANS_HOST: test_transaction_db
+      TRANS_DB: test_transaction_db
+      TRANS_PORT: '5433'
+    labels:
+      isPushkinWorker: true
+  lexicaldecision_path_worker:
+    image: lexicaldecision_path_worker
+    links:
+      - message-queue
+      - test_db
+      - test_transaction_db
+    environment:
+      AMQP_ADDRESS: 'amqp://message-queue:5672'
+      DB_USER: postgres
+      DB_PASS: 7061b35bb1d84bb855c6246adfd95c2f
+      DB_HOST: test_db
+      DB_DB: test_db
+      TRANS_USER: postgres
+      TRANS_PASS: df3b0f0b72fdc42085a677a49fdd0665
+      TRANS_HOST: test_transaction_db
+      TRANS_DB: test_transaction_db
+      TRANS_PORT: '5433'
+    labels:
+      isPushkinWorker: true
+  selfpacedreading_path_worker:
+    image: selfpacedreading_path_worker
+    links:
+      - message-queue
+      - test_db
+      - test_transaction_db
+    environment:
+      AMQP_ADDRESS: 'amqp://message-queue:5672'
+      DB_USER: postgres
+      DB_PASS: 7061b35bb1d84bb855c6246adfd95c2f
+      DB_HOST: test_db
+      DB_DB: test_db
+      TRANS_USER: postgres
+      TRANS_PASS: df3b0f0b72fdc42085a677a49fdd0665
+      TRANS_HOST: test_transaction_db
+      TRANS_DB: test_transaction_db
+      TRANS_PORT: '5433'
+    labels:
+      isPushkinWorker: true

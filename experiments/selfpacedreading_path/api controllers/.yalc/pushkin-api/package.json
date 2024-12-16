@@ -1,0 +1,39 @@
+{
+    "name": "pushkin-api",
+    "version": "1.6.3",
+    "description": "The core Pushkin API module designed for interfacing between Pushkin clients and workers through RabbitMQ",
+    "main": "build/index.js",
+    "files": [
+        "build/*"
+    ],
+    "scripts": {
+        "test": "jest",
+        "build": "babel --root-mode upward src -d build",
+        "prepack": "cp ../../LICENSE ."
+    },
+    "keywords": [
+        "pushkin",
+        "api"
+    ],
+    "author": "L3",
+    "license": "MIT",
+    "homepage": "https://pushkin-consortium.github.io/pushkin",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/pushkin-consortium/pushkin.git",
+        "directory": "packages/pushkin-api"
+    },
+    "bugs": {
+        "url": "https://github.com/pushkin-consortium/pushkin/issues"
+    },
+    "dependencies": {
+        "amqplib": "^0.10.3",
+        "body-parser": "^1.20.3",
+        "cookie-session": "^2.1.0",
+        "cors": "^2.8.5",
+        "express": "^4.21.0",
+        "regenerator-runtime": "^0.14.0",
+        "uuid": "^9.0.0"
+    },
+    "yalcSig": "59cbdb42806c417c09b08bb6aa581651"
+}

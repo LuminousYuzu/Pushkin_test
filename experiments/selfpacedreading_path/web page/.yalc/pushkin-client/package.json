@@ -1,0 +1,33 @@
+{
+    "name": "pushkin-client",
+    "version": "1.7.4",
+    "description": "A front-end Javascript module for interfacing with a Pushkin API",
+    "main": "build/index.js",
+    "files": [
+        "build/*"
+    ],
+    "scripts": {
+        "test": "jest",
+        "build": "babel --root-mode upward src -d build",
+        "prepack": "cp ../../LICENSE ."
+    },
+    "keywords": [
+        "pushkin",
+        "client"
+    ],
+    "author": "L3",
+    "license": "MIT",
+    "homepage": "https://pushkin-consortium.github.io/pushkin",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/pushkin-consortium/pushkin.git",
+        "directory": "packages/pushkin-client"
+    },
+    "bugs": {
+        "url": "https://github.com/pushkin-consortium/pushkin/issues"
+    },
+    "dependencies": {
+        "axios": "^1.7.7"
+    },
+    "yalcSig": "52c605d90cf991550ac5b4c4e93d6989"
+}

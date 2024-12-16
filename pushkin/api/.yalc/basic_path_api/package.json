@@ -1,0 +1,21 @@
+{
+  "name": "basic_path_api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build/index.js",
+  "files": [
+    "build/*",
+    ".yalc"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src -d build"
+  },
+  "author": "L3",
+  "license": "MIT",
+  "dependencies": {
+    "build-if-changed": "^1.5.5",
+    "pushkin-api": "file:.yalc/pushkin-api"
+  },
+  "yalcSig": "1632bdb08da1e83b3b3ca4644b0bcc39"
+}

@@ -1,0 +1,29 @@
+{
+  "name": "@pushkin-templates/exp-lexical-decision",
+  "version": "6.2.0",
+  "description": "A Pushkin experiment template containing a jsPsych lexical-decision timeline.",
+  "keywords": [
+    "pushkin",
+    "template"
+  ],
+  "author": "AI4CommSci",
+  "license": "MIT",
+  "homepage": "https://pushkin-consortium.github.io/pushkin",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pushkin-consortium/pushkin.git",
+    "directory": "templates/experiments/lexical-decision"
+  },
+  "bugs": {
+    "url": "https://github.com/pushkin-consortium/pushkin/issues"
+  },
+  "files": [
+    "build/*"
+  ],
+  "scripts": {
+    "test": "jest",
+    "build": "mkdir -p build && cd src && zip -FS -r -q ../build/template.zip . -x \"*/node_modules/*\" -x \"*/build/*\"",
+    "prepack": "cp ../../../LICENSE ."
+  },
+  "yalcSig": "d14d17809518511d4779bf23a7860cb4"
+}

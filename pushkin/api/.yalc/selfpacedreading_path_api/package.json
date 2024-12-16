@@ -1,0 +1,21 @@
+{
+  "name": "selfpacedreading_path_api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build/index.js",
+  "files": [
+    "build/*",
+    ".yalc"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src -d build"
+  },
+  "author": "L3",
+  "license": "MIT",
+  "dependencies": {
+    "build-if-changed": "^1.5.5",
+    "pushkin-api": "file:.yalc/pushkin-api"
+  },
+  "yalcSig": "49e28c911d3df20390a4a782ddb38560"
+}

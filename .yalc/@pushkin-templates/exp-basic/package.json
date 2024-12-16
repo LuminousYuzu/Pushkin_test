@@ -1,0 +1,29 @@
+{
+  "name": "@pushkin-templates/exp-basic",
+  "version": "6.2.0",
+  "description": "A Pushkin experiment template containing a 'Hello, world!' jsPsych timeline. This should probably be your starting point for creating a custom experiment.",
+  "keywords": [
+    "pushkin",
+    "template"
+  ],
+  "author": "AI4CommSci",
+  "license": "MIT",
+  "homepage": "https://pushkin-consortium.github.io/pushkin",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pushkin-consortium/pushkin.git",
+    "directory": "templates/experiments/basic"
+  },
+  "bugs": {
+    "url": "https://github.com/pushkin-consortium/pushkin/issues"
+  },
+  "files": [
+    "build/*"
+  ],
+  "scripts": {
+    "test": "jest",
+    "build": "mkdir -p build && cd src && zip -FS -r -q ../build/template.zip . -x \"*/node_modules/*\" -x \"*/build/*\"",
+    "prepack": "cp ../../../LICENSE ."
+  },
+  "yalcSig": "951df5f8e58dcdfccc3459d5cf704e1f"
+}

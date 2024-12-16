@@ -1,0 +1,1 @@
+export const pushkinConfig = {"info":{"rootDomain":"localhost","whoAmI":"Citizen Science Website","hashtags":"science, learn","email":"me@mydomain.com","shortName":"CSW"},"salt":"abc123","fc":{"popup":false},"addons":{"useForum":false,"useAuth":false}}

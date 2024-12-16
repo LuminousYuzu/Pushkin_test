@@ -1,0 +1,26 @@
+{
+  "version": "v1",
+  "packages": {
+    "basic_path_web": {
+      "signature": "695ba463c925588c4bf4dc9ff95fc4a6",
+      "file": true
+    },
+    "grammaticalityjudgment_path_web": {
+      "signature": "c6e663123644aedcd7247d62da10bf03",
+      "file": true
+    },
+    "lexicaldecision_path_web": {
+      "signature": "a8afb2a91494ddbd9848344a769e900f",
+      "file": true
+    },
+    "selfpacedreading_path_web": {
+      "signature": "b86841c1eb2c0e15ae1669b7acb344e9",
+      "file": true
+    },
+    "pushkin-client": {
+      "signature": "52c605d90cf991550ac5b4c4e93d6989",
+      "file": true,
+      "replaced": "^1.7.1"
+    }
+  }
+}
